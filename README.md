@@ -1,0 +1,1 @@
+Tämä on Jeremiaksen ohjelmistotuotannon kurssin repo.
