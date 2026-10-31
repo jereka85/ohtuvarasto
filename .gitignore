@@ -1,0 +1,5 @@
+# määritellään eka ne tiedostot mitä ei haluta repoon
+
+*.tmp
+__pycache__/
+.pytest_cache/
