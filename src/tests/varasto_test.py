@@ -2,6 +2,50 @@ import unittest
 from varasto import Varasto
 
 
+class TestVarasto_2(unittest.TestCase):
+    def setUp(self):
+        self.varasto = Varasto(10, -5)
+
+    def test_konstruktorin_saldo_neg(self):        
+        self.assertAlmostEqual(self.varasto.saldo, 0)
+
+    def testataan_lisays_jos_se_neg(self):
+        self.varasto.lisaa_varastoon(-3)
+        self.assertEqual(self.varasto.saldo, 0)
+        self.assertEqual(self.varasto.tilavuus, 10)
+    
+    def testataan_lisays_jos_menee_yli(self):
+        self.varasto.lisaa_varastoon(30)
+        self.assertEqual(self.varasto.saldo, 10)
+        self.assertEqual(self.varasto.tilavuus, 10)
+    
+    def testataan_otetaan_varastosta_neg(self):
+        self.varasto.lisaa_varastoon(10)
+        self.varasto.ota_varastosta(-1)
+        self.assertEqual(self.varasto.saldo, 10)
+        self.assertEqual(self.varasto.tilavuus, 10)   
+
+    def testataan_otetaan_varastosta_kaikki(self):
+        self.varasto.lisaa_varastoon(10)
+        self.assertEqual(self.varasto.ota_varastosta(11), 10)
+                
+        self.assertEqual(self.varasto.saldo, 0)
+        self.assertEqual(self.varasto.tilavuus, 10)
+
+    def testataan_str(self):
+        self.varasto.lisaa_varastoon(10)
+        self.assertEqual(str(self.varasto), "saldo = 10.0, vielä tilaa 0.0")
+
+    
+    
+
+class TestVarasto_3(unittest.TestCase):
+    def setUp(self):
+        self.varasto = Varasto(-10)
+
+    def test_konstruktorin_tilavuus_neg(self):        
+        self.assertAlmostEqual(self.varasto.tilavuus, 0)
+
 class TestVarasto(unittest.TestCase):
     def setUp(self):
         self.varasto = Varasto(10)

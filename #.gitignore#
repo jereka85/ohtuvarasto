@@ -1,0 +1,8 @@
+# määritellään eka ne tiedostot mitä ei haluta repoon
+
+*.tmp
+__pycache__/
+.pytest_cache/
+.coverage
+>       self.assertEqual(print(self.varasto), "saldo = 10, vielä tilaa 0")
+htmlcov/
